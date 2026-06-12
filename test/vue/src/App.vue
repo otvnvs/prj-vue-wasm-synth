@@ -205,9 +205,9 @@ const pianoKeys = [
 const shortcutMap = {
   "z":"c4",  "x":"d4",  "c":"e4",  "v":"f4",  "b":"g4",  "n":"a4",  "m":"b4",
   "s":"c#4", "d":"d#4", "g":"f#4", "h":"g#4", "j":"a#4",
-  "q":"c5",  "w":"d5",  "e":"e5",  "r":"f5",  "t":"g5",  "y":"a5",  "u":"b5",
+  "q":"c5",  "w":"d5",  "3":"d#5", "e":"e5",  "r":"f5",  "t":"g5",  "y":"a5",  "u":"b5",
   "2":"c#5", "4":"d#5", "5":"f#5", "6":"g#5", "7":"a#5",
-  ",":"c5",  ".":"d5",  "/":"e5",  ";":"d#5",
+  ",":"c5",  "l":"c#5", ".":"d5",  "/":"e5",  ";":"d#5",
   "i":"c6",  "9":"c#6", "o":"d6",  "0":"d#6", "p":"e6",
   "[":"f6",  "=":"f#6", "]":"g6",
 };
@@ -378,6 +378,7 @@ onBeforeUnmount(() => {
             <option value="synth_harpsichord">Harpsichord Synth (Generator)</option> 
             <option value="resonant_filter">Low-Pass Filter (Processor)</option>
             <option value="tape_echo">Tape Echo (Processor)</option>
+            <option value="reverb">Reverb (Processor)</option>
             <option value="flanger">Flanger (Processor)</option>
             <option value="waveshaper">Waveshaper (Processor)</option>
             <option value="auto_wah">Auto-Wah (Processor)</option>
