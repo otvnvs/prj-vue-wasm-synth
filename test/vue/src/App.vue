@@ -375,7 +375,7 @@ onBeforeUnmount(() => {
           <select v-model="selectedClassId">
 		  <!-- todo: make dynamic -->
             <option value="synth_core">Polyphonic Synth (Generator)</option>
-            <option value="organ_blender">Organ Wave Blender (Slider Generator)</option> 
+            <option value="synth_harpsichord">Harpsichord Synth (Generator)</option> 
             <option value="resonant_filter">Low-Pass Filter (Processor)</option>
             <option value="tape_echo">Tape Echo (Processor)</option>
             <option value="flanger">Flanger (Processor)</option>

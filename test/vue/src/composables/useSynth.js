@@ -1,7 +1,7 @@
 import { ref, onBeforeUnmount } from "vue";
 import { GraphSynthEngine } from "../assets/wasm/index.js";
 import synthWasmUrl from "../assets/wasm/synth.wasm?url";
-import synth2WasmUrl from "../assets/wasm/synth2.wasm?url";
+import harpsichordWasmUrl from "../assets/wasm/harpsichord.wasm?url";
 import echoWasmUrl from "../assets/wasm/echo.wasm?url";
 import filterWasmUrl from "../assets/wasm/filter.wasm?url";
 import flangerWasmUrl from "../assets/wasm/flanger.wasm?url";
@@ -17,7 +17,7 @@ export function useSynth() {
 
     const binaryRegistry = {
         synth_core: synthWasmUrl,
-        organ_blender: synth2WasmUrl,
+        synth_harpsichord: harpsichordWasmUrl,
         tape_echo: echoWasmUrl,
         resonant_filter: filterWasmUrl,
         flanger: flangerWasmUrl,
