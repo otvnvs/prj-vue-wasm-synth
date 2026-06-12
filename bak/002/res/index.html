@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emscripten Waveform Hub</title>
+    <style>
+        body { font-family: sans-serif; padding: 30px; max-width: 600px; margin: 0 auto; }
+        .section { margin-bottom: 30px; padding: 20px; border: 1px solid #ccc; border-radius: 6px; }
+        button { padding: 10px 20px; font-size: 15px; margin-right: 10px; cursor: pointer; }
+        .status { margin-top: 10px; color: #555; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <h1>Emscripten Waveform Generation Engine</h1>
+
+    <!-- PRESERVED BUFFER GENERATION INTERFACE -->
+    <div class="section">
+        <h3>Feature 1: Static Buffer Generation (Original)</h3>
+        <button id="playSine">Play Sine Wave</button>
+        <button id="playSquare">Play Square Wave</button>
+        <div id="status" class="status">Status: Waiting for WebAssembly...</div>
+    </div>
+
+    <!-- NEW LIVE GENERATION INTERFACE -->
+    <div class="section">
+        <h3>Feature 2: Continuous Real-Time Signal Streaming (New)</h3>
+        <button id="btnToggleStream">Toggle Continuous Stream</button>
+        <div id="streamStatus" class="status">Live Stream: Offline</div>
+    </div>
+
+    <!-- Connect your modern module definitions -->
+    <script type="module">
+        import { handlePlayback, toggleLiveStream } from './main.js';
+
+        // Bind the original verified working events
+        document.getElementById('playSine').addEventListener('click', () => {
+            console.log("Sine button clicked!");
+            handlePlayback('sine');
+        });
+
+        document.getElementById('playSquare').addEventListener('click', () => {
+            console.log("Square button clicked!");
+            handlePlayback('square');
+        });
+
+        // Bind the new streaming toggle event
+        document.getElementById('btnToggleStream').addEventListener('click', () => {
+            toggleLiveStream();
+        });
+    </script>
+
+    <!-- Load the main Emscripten core asset for the static buffer feature -->
+    <script async src="waveform.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modular Emscripten Synthesizer</title>
+    <style>
+        body { font-family: sans-serif; padding: 30px; max-width: 600px; margin: 0 auto; }
+        .section { margin-bottom: 25px; padding: 20px; border: 1px solid #ccc; border-radius: 6px; }
+        select, button { padding: 10px 15px; font-size: 15px; margin-right: 10px; cursor: pointer; }
+        .status { margin-top: 10px; color: #555; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <h1>Modular Emscripten Synthesis Engine</h1>
+
+    <!-- WAVEFORM SELECTOR MENU -->
+    <div class="section">
+        <h3>1. Select Generator Component</h3>
+        <select id="waveSelect">
+            <option value="sine">Sine Wave Oscillator</option>
+            <option value="square">Square Wave Oscillator</option>
+            <option value="sawtooth">Sawtooth Wave Oscillator</option>
+        </select>
+    </div>
+
+    <!-- FEATURE 1: STATIC BUFFER -->
+    <div class="section">
+        <h3>2. Static Buffer Action</h3>
+        <button id="btnPlayBuffer">Play 2s Selected Buffer</button>
+        <div id="status" class="status">Status: Mapping assets...</div>
+    </div>
+
+    <!-- FEATURE 2: LIVE STREAM -->
+    <div class="section">
+        <h3>3. Real-Time Streaming Action</h3>
+        <button id="btnToggleStream">Toggle Continuous Stream</button>
+        <div id="streamStatus" class="status">Live Stream: Offline</div>
+    </div>
+
+    <script type="module">
+        import { handlePlayback, toggleLiveStream, setWaveformType } from './main.js';
+
+        // Synchronize selector changes
+        document.getElementById('waveSelect').addEventListener('change', (e) => {
+            setWaveformType(e.target.value);
+        });
+
+        // Trigger action nodes
+        document.getElementById('btnPlayBuffer').addEventListener('click', () => handlePlayback());
+        document.getElementById('btnToggleStream').addEventListener('click', () => toggleLiveStream());
+    </script>
+
+    <script async src="./waveform.js"></script>
+</body>
+</html>
+

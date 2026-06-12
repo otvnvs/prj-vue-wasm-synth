@@ -1,0 +1,21 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "npm init -y npm install vue vite @vitejs/plugin-vue",
+  "main": "index.js",
+  "scripts": {
+    "run": "npx vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "vite": "^8.0.16",
+    "vue": "^3.5.35"
+  }
+}
